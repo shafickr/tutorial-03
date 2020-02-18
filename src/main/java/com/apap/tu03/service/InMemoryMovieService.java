@@ -32,4 +32,11 @@ public class InMemoryMovieService implements MovieService {
 		}
 		return null;
 	}
+
+	@Override
+	public MovieModel deleteMovie(String id) {
+		MovieModel movie = getMovieDetail(id);
+		archiveMovie.remove(movie);
+		return movie;
+	}
 }
